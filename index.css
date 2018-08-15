@@ -1,0 +1,10 @@
+#container{
+    position: fixed;
+    height: 600px;
+    width: 600px;
+    top: 0px;
+    left: 0px;
+    border: solid black;
+    border-width: 10px;
+    background-color: red;
+}

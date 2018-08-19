@@ -25,16 +25,21 @@ let clear = function(){
 }
 
 let divide = function (){
-    operationClicked = true;
-    storedNumbers.push(parseInt(display.textContent));
-    if (equalClicked == true) {
-        previousDisplay.textContent = storedNumbers[0] + " / ";
-        equalClicked = false;
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
     } else {
-        previousDisplay.textContent += " / ";
+        operationClicked = true;
+        storedNumbers.push(parseInt(display.textContent));
+        if (equalClicked == true) {
+            previousDisplay.textContent = storedNumbers[0] + " / ";
+            equalClicked = false;
+        } else {
+            previousDisplay.textContent += " / ";
+        }
+        console.log(storedNumbers);
+        operationValue = 3;
     }
-    console.log(storedNumbers);
-    operationValue = 3;
 }
 
 let seven = function (){
@@ -45,9 +50,9 @@ let seven = function (){
     } else {
         display.textContent += 7;
     }
-    
+
     previousDisplay.textContent += 7;
-    
+
     console.log(storedNumbers);
 }
 
@@ -59,7 +64,7 @@ let eight = function (){
     } else {
         display.textContent += 8;
     }
-    
+
     previousDisplay.textContent += 8;
     console.log(storedNumbers);
 }
@@ -72,22 +77,29 @@ let nine = function (){
     } else {
         display.textContent += 9;
     }
-    
+
     previousDisplay.textContent += 9;
     console.log(storedNumbers);
 }
 
 let multiply = function (){
-    operationClicked = true;
-    storedNumbers.push(parseInt(display.textContent));
-    if (equalClicked == true) {
-        previousDisplay.textContent = storedNumbers[0] + " * ";
-        equalClicked = false;
+
+
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
     } else {
-        previousDisplay.textContent += " * ";
+        operationClicked = true;
+        storedNumbers.push(parseInt(display.textContent));
+        if (equalClicked == true) {
+            previousDisplay.textContent = storedNumbers[0] + " * ";
+            equalClicked = false;
+        } else {
+            previousDisplay.textContent += " * ";
+        }
+        console.log(storedNumbers);
+        operationValue = 2;
     }
-    console.log(storedNumbers);
-    operationValue = 2;
 }
 
 let four = function (){
@@ -98,7 +110,7 @@ let four = function (){
     } else {
         display.textContent += 4;
     }
-    
+
     previousDisplay.textContent += 4;
     console.log(storedNumbers);
 }
@@ -111,7 +123,7 @@ let five = function (){
     } else {
         display.textContent += 5;
     }
-    
+
     previousDisplay.textContent += 5;
     console.log(storedNumbers);
 }
@@ -124,22 +136,27 @@ let six = function (){
     } else {
         display.textContent += 6;
     }
-    
+
     previousDisplay.textContent += 6;
     console.log(storedNumbers);
 }
 
 let minus = function (){
-    operationClicked = true;
-    storedNumbers.push(parseInt(display.textContent));
-    if (equalClicked == true) {
-        previousDisplay.textContent = storedNumbers[0] + " - ";
-        equalClicked = false;
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
     } else {
-        previousDisplay.textContent += " - ";
+        operationClicked = true;
+        storedNumbers.push(parseInt(display.textContent));
+        if (equalClicked == true) {
+            previousDisplay.textContent = storedNumbers[0] + " - ";
+            equalClicked = false;
+        } else {
+            previousDisplay.textContent += " - ";
+        }
+        console.log(storedNumbers);
+        operationValue = 1;
     }
-    console.log(storedNumbers);
-    operationValue = 1;
 }
 
 let one = function (){
@@ -150,7 +167,7 @@ let one = function (){
     } else {
         display.textContent += 1;
     }
-    
+
     previousDisplay.textContent += 1;
     console.log(storedNumbers);
 }
@@ -163,7 +180,7 @@ let two = function (){
     } else {
         display.textContent += 2;
     }
-    
+
     previousDisplay.textContent += 2;
     console.log(storedNumbers);
 }
@@ -176,28 +193,38 @@ let three = function (){
     } else {
         display.textContent += 3;
     }
-    
+
     previousDisplay.textContent += 3;
     console.log(storedNumbers);
 }
 
 let plus = function (){
-    operationClicked = true;
-    storedNumbers.push(parseInt(display.textContent));
-    
-    if (equalClicked == true) {
-        previousDisplay.textContent = storedNumbers[0] + " + ";
-        equalClicked = false;
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
     } else {
-        previousDisplay.textContent += " + ";
+        operationClicked = true;
+        storedNumbers.push(parseInt(display.textContent));
+
+        if (equalClicked == true) {
+            previousDisplay.textContent = storedNumbers[0] + " + ";
+            equalClicked = false;
+        } else {
+            previousDisplay.textContent += " + ";
+        }
+        console.log(storedNumbers);
+        operationValue = 0;
     }
-    console.log(storedNumbers);
-    operationValue = 0;
 }
 
 let plusMinus = function (){
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
+    } else {
     let answer = (display.textContent)*(-1);
     display.textContent = answer;
+    }
 }
 
 let zero = function (){
@@ -208,7 +235,7 @@ let zero = function (){
     } else {
         display.textContent += 0;
     }
-    
+
     previousDisplay.textContent += 0;
     console.log(storedNumbers);
 }
@@ -219,7 +246,7 @@ let decimal = function(){
 }
 
 let equals = function(){
-    
+
     operate();
 }
 
@@ -258,41 +285,46 @@ let updateCurrentDisplay = function() {
 }
 
 let operate = function() {
-    
-    previousDisplay.textContent += " = ";
-    storedNumbers.push(parseInt(display.textContent));
-    if (operationValue == 0) {
-        let answer = storedNumbers[0]+storedNumbers[1];
-        console.log(answer);
-        display.textContent = answer;
-        storedNumbers = [];
-        console.log(storedNumbers);
-        operationValue = "";
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "Please enter a number."
+        operationClicked = true;
+    } else {
+
+        previousDisplay.textContent += " = ";
+        storedNumbers.push(parseInt(display.textContent));
+        if (operationValue == 0) {
+            let answer = storedNumbers[0]+storedNumbers[1];
+            console.log(answer);
+            display.textContent = answer;
+            storedNumbers = [];
+            console.log(storedNumbers);
+            operationValue = "";
         } else if (operationValue == 1) {
-        let answer = storedNumbers[0]-storedNumbers[1];
-        console.log(answer);
-        display.textContent = answer;
-        storedNumbers = [];
-        console.log(storedNumbers);
-        operationValue = "";
+            let answer = storedNumbers[0]-storedNumbers[1];
+            console.log(answer);
+            display.textContent = answer;
+            storedNumbers = [];
+            console.log(storedNumbers);
+            operationValue = "";
         } else if (operationValue == 2) {
-        let answer = storedNumbers[0]*storedNumbers[1];
-        console.log(answer);
-        display.textContent = answer;
-        storedNumbers = [];
-        console.log(storedNumbers);
-        operationValue = "";
+            let answer = storedNumbers[0]*storedNumbers[1];
+            console.log(answer);
+            display.textContent = answer;
+            storedNumbers = [];
+            console.log(storedNumbers);
+            operationValue = "";
         } else if (operationValue == 3) {
-        let answer = storedNumbers[0]/storedNumbers[1];
-        console.log(answer);
-        display.textContent = answer;
-        storedNumbers = [];
-        console.log(storedNumbers);
-        operationValue = "";
+            let answer = storedNumbers[0]/storedNumbers[1];
+            console.log(answer);
+            display.textContent = answer;
+            storedNumbers = [];
+            console.log(storedNumbers);
+            operationValue = "";
         } else{
             return("something went wrong")
         }
-    equalClicked = true;
+        equalClicked = true;
+    }
 }
 
 //click a number, have it appear in the display, and store it

@@ -1,10 +1,78 @@
 #container{
-    position: fixed;
+    margin: auto;
     height: 600px;
     width: 600px;
-    top: 0px;
-    left: 0px;
     border: solid black;
-    border-width: 10px;
-    background-color: red;
+    border-width: 1px;
+}
+
+#screen {
+    height:110px;
+    width: 550px;
+    margin:auto;
+    margin-top: 10px;
+    border: solid black;
+    border-width: 1px;
+}
+
+#keyContainer {
+    height:446px;
+    width: 550px;
+    margin:auto;
+    margin-top: 30px;
+    //border: solid black;
+    //border-width: 1px;
+}
+
+tr {
+    border: solid black;
+    border-width: 1px;
+    height: 87px;
+}
+
+td {
+    border: solid black;
+    border-width: 1px;
+    width: 136px;
+}
+
+button {
+    display: block;
+    margin: auto;
+    border: none;
+    font-size: 30px;
+    width: 100%;
+    height: 83px;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+#previous {
+    height: 20px;
+    border: solid black;
+    border-width: 1px;
+}
+
+#current {
+    height: 86px;
+    border: solid black;
+    border-width: 1px;
+}
+
+#currentDisplay {
+    text-align: right;
+    font-size: 50px;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+#previousDisplay {
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    text-align: right;
 }

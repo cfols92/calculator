@@ -2,6 +2,8 @@ const btn = document.querySelectorAll('button');
 
 let btnArray = Array.from(btn);
 
+let decimalClicked = false;
+
 let equalClicked = "";
 
 let display = document.querySelector('#currentDisplay');
@@ -222,8 +224,8 @@ let plusMinus = function (){
         display.textContent = "Please enter a number."
         operationClicked = true;
     } else {
-    let answer = (display.textContent)*(-1);
-    display.textContent = answer;
+        let answer = (display.textContent)*(-1);
+        display.textContent = answer;
     }
 }
 
@@ -241,8 +243,11 @@ let zero = function (){
 }
 
 let decimal = function(){
-    let answer = (display.textContent) + ".";
-    display.textContent = parseInt(answer);
+    if (display.textContent == "" || display.textContent == "Please enter a number.") {
+        display.textContent = "0.";
+    } else {
+        display.textContent += ".";
+    }
 }
 
 let equals = function(){
@@ -289,48 +294,14 @@ let operate = function() {
         display.textContent = "Please enter a number."
         operationClicked = true;
     } else {
-
+        storedNumbers.push(parseInt(display.textContent))
+        let answer = eval(previousDisplay.textContent);
+        display.textContent = answer;
         previousDisplay.textContent += " = ";
-        storedNumbers.push(parseInt(display.textContent));
-        if (operationValue == 0) {
-            let answer = storedNumbers[0]+storedNumbers[1];
-            console.log(answer);
-            display.textContent = answer;
-            storedNumbers = [];
-            console.log(storedNumbers);
-            operationValue = "";
-        } else if (operationValue == 1) {
-            let answer = storedNumbers[0]-storedNumbers[1];
-            console.log(answer);
-            display.textContent = answer;
-            storedNumbers = [];
-            console.log(storedNumbers);
-            operationValue = "";
-        } else if (operationValue == 2) {
-            let answer = storedNumbers[0]*storedNumbers[1];
-            console.log(answer);
-            display.textContent = answer;
-            storedNumbers = [];
-            console.log(storedNumbers);
-            operationValue = "";
-        } else if (operationValue == 3) {
-            let answer = storedNumbers[0]/storedNumbers[1];
-            console.log(answer);
-            display.textContent = answer;
-            storedNumbers = [];
-            console.log(storedNumbers);
-            operationValue = "";
-        } else{
-            return("something went wrong")
-        }
+        storedNumbers = [];
+        console.log(answer);
+        console.log(storedNumbers);
         equalClicked = true;
+        operationValue = "";
     }
 }
-
-//click a number, have it appear in the display, and store it
-//click on an operation and have it stored
-//click on new numbers after operation, have old numbers dissapear and new numbers display
-//click equals and have old numbers dissapear and new number display
-//Make all the operations work
-//Have it continue to work after the first one
-//Pressing equals first shouldn't break it
